@@ -22,6 +22,8 @@ srcCoffee = "#{config.src}/**/*.coffee"
 srcCompass = "#{config.src}/**/*.scss"
 
 srcHTML = ["#{config.src}/**/*.html", "!#{config.src}/**/tpl-*.html"]
+srcTemplate = ["!#{config.src}/**/*.html", "#{config.src}/**/tpl-*.html"]
+
 dist = config.dist
 
 
@@ -84,4 +86,5 @@ gulp.task 'look', ['default'], ->
 
   gulp.watch srcCoffee, ['coffee']
   gulp.watch srcHTML, ['html']
+  gulp.watch srcTemplate, ['template']
   gulp.watch srcCompass, ['compass']

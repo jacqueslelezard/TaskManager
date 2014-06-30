@@ -1,4 +1,102 @@
+$background:  #444;
+$backgroundimage: url('http://www.wallfizz.com/nature/pierre/5095-galets-formes-WallFizz.jpg');
+
+
 body {
-  background: #FFF;
+  background: $background;
+  background-image: $backgroundimage;
   color: #333;
+  font-family: Arial;
+  font-weight: bold;
+  font-variant: small-caps;
+  transition: All 0.3s ease;
 }
+
+.category{
+    color: white;
+    //width: 19%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1%;
+    margin: 1%;
+    float: left;
+    border-radius: 3px;
+    opacity: 0.9;
+    height: auto;
+    transition: All 0.3s ease;
+}
+
+.task{
+    color: black;
+    width: 90%;
+    background-color: #eee;
+    padding: 3%;
+    margin: 3%;
+    opacity: 1;
+    border-radius: 3px;
+}
+
+.hidden{
+    display: none;
+}
+
+button{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    color: white;
+    color: #aaa;
+}
+select{
+    background-color: #fff;
+    border-radius: 10px;
+    color: white;
+    color: #000;
+    border: none;
+    width: 20px;
+}
+
+input{
+  margin-left: 10px;
+  height: 15px;
+  color: #555;
+}
+
+.drag{
+    box-shadow: 3px 3px 8px #aba;
+    background-color: rgba(220, 220, 220, 0.8);
+}
+
+.dragover{
+    box-shadow: 2px 2px 3px #aba inset;
+    background-color: #eed;
+}
+
+.haut{
+  border-bottom: 3px solid #000;
+  background-color: #fff;
+  opacity:1;
+}
+.normal{
+  border-bottom: 1px solid #000;
+  background-color: #f6f6f6;
+  opacity:0.9;
+}
+.bas{
+  opacity:0.8;
+  color: #666;
+}
+/*
+.todo{
+  position: absolute;
+  left: 5%;
+  width: 25%
+}
+.inprogress{
+  position: absolute;
+  left: 35%;
+  width: 25%;
+}
+.done{
+  position: absolute;
+  left: 65%;
+  width: 25%;
+}*/

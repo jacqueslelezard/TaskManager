@@ -1,0 +1,45 @@
+
+
+
+<form name="addCategory" novalidate>
+        <input type="text" ng-model="newCategory" placeholder="New category..."/>
+        <!--<input class="hidden" type="text" ng-model="category"/>
+        <select type="text" ng-model="newpriority" >
+            <option value="1">urgent</option>
+            <option value="2" selected="selected">normal</option>
+            <option value="3">bas</option>
+        </select>-->
+        <button ng-click='addCat(newCategory)'>Add</button>
+</form>
+
+
+<div ng-repeat="category in categories track by $index"  ng-drop="drop(dragItem, category)" droppable="task"  class="category" ng-style="{width: (95/categories.length-4)+'%'}">
+    {{category}}<button style="float: right; opacity: 0.5;" ng-click='deleteCat(category)'>X</button>
+    </br> </br>
+    <div >
+        <div draggable="task" state="task" ng-repeat="task in tasks | filter: { category: category }| orderBy : 'priority'" ng-model='currenttask' class="task" ng-class="{'haut': task.priority==1, 'normal': task.priority==2, 'bas': task.priority==3}"><p>{{task.name}} </p><i>{{task.priority}}</i>
+        <select ng-model="currentpriority" ng-change="updatePrio(task, currentpriority)" >
+            <p>{{task.priority}}</p>
+            <option value="1">urgent</option>
+            <option value="2">normal</option>
+            <option value="3">bas</option>
+        </select>
+        <button ng-click='delete(task)' style="float: right; opacity: 0.5;">X</button>
+        <!--<select ng-model="selectedCategory" ng-change='updateCat(task, selectedCategory)'>
+            <option>{{task.priority[0]}}</option>
+            <option>{{tasK.priority[1]}}</option>
+            <option>{{task.priority[2]}}</option>
+        </select>-->
+        </div>
+        <form name="addTask">
+        <input type="text" ng-model="newTask" placeholder="New task..."/>
+        <input class="hidden" type="text" ng-model="category"/>
+        <select type="text" ng-model="newpriority" >
+            <option value="1">urgent</option>
+            <option value="2" selected="selected">normal</option>
+            <option value="3">bas</option>
+        </select>
+        <button ng-click='add(newTask, category, priority)'>Add</button>
+        </form>
+    </div>
+</div>

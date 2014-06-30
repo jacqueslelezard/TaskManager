@@ -24,8 +24,7 @@ config =
   modules: ['app']
 
   publicjs: [
-    "dist/public/components/angular/angular.js"
-    "dist/public/components/angular-ui-router/release/angular-ui-router.js"
+
     "dist/public/app/main.js"
     "dist/public/app/**/*.js"
   ]
