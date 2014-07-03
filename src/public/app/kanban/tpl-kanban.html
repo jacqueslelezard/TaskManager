@@ -1,6 +1,8 @@
 
 
 
+
+
 <form name="addCategory" novalidate>
         <input type="text" ng-model="newCategory" placeholder="New category..."/>
         <!--<input class="hidden" type="text" ng-model="category"/>
@@ -13,11 +15,13 @@
 </form>
 
 
-<div ng-repeat="category in categories track by $index"  ng-drop="drop(dragItem, category)" droppable="task"  class="category" ng-style="{width: (95/categories.length-4)+'%'}">
-    {{category}}<button style="float: right; opacity: 0.5;" ng-click='deleteCat(category)'>X</button>
+<div ng-repeat="category in categories track by $index"  ng-drop="drop(dragItem, category)" droppable="task"  class="category" widthresize=categories>
+    {{category.name}}<button style="float: right; opacity: 0.5;" ng-click='deleteCat(category)'>X</button>
     </br> </br>
     <div >
-        <div draggable="task" state="task" ng-repeat="task in tasks | filter: { category: category }| orderBy : 'priority'" ng-model='currenttask' class="task" ng-class="{'haut': task.priority==1, 'normal': task.priority==2, 'bas': task.priority==3}"><p>{{task.name}} </p><i>{{task.priority}}</i>
+        <div draggable="task" state="task"  ng-repeat="task in tasks | orderByPriority | filter: { category: category }| orderBy : 'priority'" ng-model='currenttask' class="task" ng-class="{'haut': task.priority==1, 'normal': task.priority==2, 'bas': task.priority==3}">
+        <input class="display" value="{{task.name}}"
+        ng-model="newContent" ng-change="updateLiveContent(task, newContent)" ng-click="updateContent(task, newContent)" ng-enter="updateContent(task, newContent)">{{task.name}}</input></br><i>importance : {{task.priority}}</i>
         <select ng-model="currentpriority" ng-change="updatePrio(task, currentpriority)" >
             <p>{{task.priority}}</p>
             <option value="1">urgent</option>
@@ -39,7 +43,7 @@
             <option value="2" selected="selected">normal</option>
             <option value="3">bas</option>
         </select>
-        <button ng-click='add(newTask, category, priority)'>Add</button>
+        <button ng-click='add(newTask, category, newpriority); newTask = ""'>Add</button>
         </form>
     </div>
 </div>

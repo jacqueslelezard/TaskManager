@@ -2,8 +2,6 @@ angular.module('app').factory 'Tasks',
     ($firebase) ->
 
         tasks = new Firebase("https://kanbangt.firebaseio.com/tasks")
-        console.log($firebase(tasks))
-
 
         list = [
             {name:'un peu de style !', category:'inprogress', priority: 2}
@@ -16,7 +14,7 @@ angular.module('app').factory 'Tasks',
         return {
 
             get: ->
-                return $firebase(tasks)
+                return list
 
             add: (newtask, newtaskcategory, newtaskpriority) ->
                 if newtaskpriority
@@ -42,3 +40,4 @@ angular.module('app').factory 'Tasks',
             #drag: (ev) ->
                 #ev.dataTransfer.setData("Text", ev.target.id)
         }
+

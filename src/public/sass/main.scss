@@ -1,10 +1,10 @@
-$background:  #444;
+$background:  #ac0;
 $backgroundimage: url('http://www.wallfizz.com/nature/pierre/5095-galets-formes-WallFizz.jpg');
 
 
 body {
   background: $background;
-  background-image: $backgroundimage;
+  /*background-image: $backgroundimage;*/
   color: #333;
   font-family: Arial;
   font-weight: bold;
@@ -17,7 +17,7 @@ body {
     //width: 19%;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 1%;
-    margin: 1%;
+    margin: 0.2%;
     float: left;
     border-radius: 3px;
     opacity: 0.9;
@@ -32,7 +32,7 @@ body {
     padding: 3%;
     margin: 3%;
     opacity: 1;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .hidden{
@@ -56,8 +56,24 @@ select{
 
 input{
   margin-left: 10px;
-  height: 15px;
+  height: 18px;
   color: #555;
+}
+
+.display{
+  background-color: transparent;
+  color: none;
+  border:none;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0;
+  margin-bottom: -20px;
+  position: absolute;
+}
+.display:focus{
+  background-color: transparent;
+  color: none;
+  border:none;
 }
 
 .drag{
